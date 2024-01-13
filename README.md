@@ -3,7 +3,7 @@
 ***Для создания коллекции и работы запросов использовался инструмент тестирования - Postman***
 
 ## В коллекции 4 основных запросы:
-1. Создание issue с названием Issue 1, описанием Something went wrong. Также у этой issue должен быть label — bug — и assignee — вы (текущий логин на GitHub):
+## 1. Создание issue с названием Issue 1, описанием Something went wrong. Также у этой issue должен быть label — bug — и assignee — вы (текущий логин на GitHub):
    - Чтобы создать данный запрос нужно обраться к документации GitHub [Текст ссылки] (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#about-issues) (POST /repos/{owner}/{repo}/issues)
    - В поле URL ввести адрес API GitHub issues - https://api.github.com/repos/{owner}/{repo}/issues
    - Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
@@ -22,7 +22,8 @@
 ```
 >>> ВАЖНО!!! Обязательно исправьте {owner} на логин на GitHub
 
-7. Нажмите на кнопку "Send" (Отправить) для выполнения запроса.
-3. Получить список issues
+- Нажмите на кнопку "Send" (Отправить) для выполнения запроса
+  
+## 2. Получить список issues
 4. Изменить название задачи на Issue 2
 5. Удалите Issue 2
