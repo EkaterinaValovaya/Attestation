@@ -17,7 +17,7 @@
  "title": "Issue 1",
  "body": "Something went wrong.",
  "labels": ["bug"],
- "assignees": ["{owner}"]
+ "assignees": [{owner}]
 }
 ```
 >>> ВАЖНО!!! Обязательно исправьте {owner} на логин на GitHub и нажать "Send" для выполнения запроса
