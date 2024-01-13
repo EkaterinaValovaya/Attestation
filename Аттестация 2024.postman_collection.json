@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "f506b440-f004-42c9-9df2-8782375b7838",
+		"name": "Аттестация 2024",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27789652"
+	},
+	"item": [
+		{
+			"name": "Создание issue с названием Issue 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"issue_number\"\r",
+							"var value = pm.response.json().number\r",
+							"pm.collectionVariables.set(key, value)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Token",
+						"value": "{{myToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"Issue 1\",\r\n\"body\": \"Something went wrong.\",\r\n\"labels\": [\"bug\"],\r\n\"assignees\": [\"EkaterinaValovaya\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{GetURL}}/repos/{{userEV}}/{{myRepons}}/issues",
+					"host": [
+						"{{GetURL}}"
+					],
+					"path": [
+						"repos",
+						"{{userEV}}",
+						"{{myRepons}}",
+						"issues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список issues",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{GetURL}}/repos/{{userEV}}/{{myRepons}}/issues/{{issue_number}}",
+					"host": [
+						"{{GetURL}}"
+					],
+					"path": [
+						"repos",
+						"{{userEV}}",
+						"{{myRepons}}",
+						"issues",
+						"{{issue_number}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение названия задачи на Issue 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Issue 2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{GetURL}}/repos/{{userEV}}/{{myRepons}}/issues/{{issue_number}}",
+					"host": [
+						"{{GetURL}}"
+					],
+					"path": [
+						"repos",
+						"{{userEV}}",
+						"{{myRepons}}",
+						"issues",
+						"{{issue_number}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление Issue 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{myToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.github+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{GetURL}}/repos/{{userEV}}/{{myRepons}}/issues/{{issue_number}}/lock",
+					"host": [
+						"{{GetURL}}"
+					],
+					"path": [
+						"repos",
+						"{{userEV}}",
+						"{{myRepons}}",
+						"issues",
+						"{{issue_number}}",
+						"lock"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{myToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "myToken",
+			"value": "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",
+			"type": "string"
+		},
+		{
+			"key": "GetURL",
+			"value": "https://api.github.com"
+		},
+		{
+			"key": "userEV",
+			"value": "EkaterinaValovaya"
+		},
+		{
+			"key": "myRepons",
+			"value": "Attestation"
+		},
+		{
+			"key": "issue_number",
+			"value": ""
+		}
+	]
+}
