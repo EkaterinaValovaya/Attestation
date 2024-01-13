@@ -1,9 +1,8 @@
 # Использование коллекции
 ### Для того, чтобы коллекция работа следует особое внимание обратить на методы (GET, POST, PATCH, DELETE)
 ***Для создания коллекции и работы запросов использовался инструмент тестирования - Postman***
-####Основной URL - api.github.com
 
-## В коллекции 4 основных запросы:
+## В коллекции 4 основных запросы (URL - api.github.com)
 ## 1. Создание issue с названием Issue 1, описанием Something went wrong. Также у этой issue должен быть label — bug — и assignee — вы (текущий логин на GitHub):
    - Чтобы создать данный запрос нужно обраться к документации GitHub (POST/repos/{owner}/{repo}/issues)
    - В поле URL ввести адрес API GitHub issues - метод **POST** https://api.github.com/repos/{owner}/{repo}/issues
