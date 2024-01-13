@@ -4,7 +4,7 @@
 
 ## В коллекции 4 основных запросы:
 ## 1. Создание issue с названием Issue 1, описанием Something went wrong. Также у этой issue должен быть label — bug — и assignee — вы (текущий логин на GitHub):
-   - Чтобы создать данный запрос нужно обраться к документации GitHub (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#about-issues) (POST /repos/{owner}/{repo}/issues)
+   - Чтобы создать данный запрос нужно обраться к документации GitHub (POST/repos/{owner}/{repo}/issues)
    - В поле URL ввести адрес API GitHub issues - метод **POST** https://api.github.com/repos/{owner}/{repo}/issues
    - Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
    - Исправить {repo} на имя вашего репозитория, у меня это - Attestation
@@ -23,7 +23,7 @@
 >>> ВАЖНО!!! Обязательно исправьте {owner} на логин на GitHub и нажать "Send" для выполнения запроса
   
 ## 2. Получить список issues 
-- Чтобы создать данный запрос нужно обраться к документации GitHub [Текст ссылки] (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue) (GET /repos/{owner}/{repo}/issues)
+- Чтобы создать данный запрос нужно обраться к документации GitHub (GET/repos/{owner}/{repo}/issues/{issue_number})
 - В поле URL введите адрес API GitHub issues - метод **GET** https://api.github.com/repos/{owner}/{repo}/issues
 - Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
 - Исправить {repo} на имя вашего репозитория, у меня это - Attestation
@@ -32,7 +32,7 @@
 - Нажать кнопку Send
   
 ## 3. Изменить название задачи на Issue 2
-- Чтобы создать данный запрос нужно обраться к документации GitHub [Текст ссылки] (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#update-an-issue) /repos/{owner}/{repo}/issues/{issue_number}
+- Чтобы создать данный запрос нужно обраться к документации GitHub (PATCH/repos/{owner}/{repo}/issues/{issue_number})
 - В поле URL введите адрес API GitHub issues - метод **PATCH**  https://api.github.com/repos/{owner}/{repo}/issues
 - Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
 - Исправить {repo} на имя вашего репозитория, у меня это - Attestation
@@ -46,8 +46,8 @@
 }
 ```
 ## 5. Удаление Issue 2
-- Чтобы создать данный запрос нужно обраться к документации GitHub [Текст ссылки] (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#unlock-an-issue)
-  >>> Проанализировав документацю для API-запросов GitHub мне показалось странным размещение запросы с методом DELETE в разделе Unlock an issue (как минимум, это не логично), возможно из-за этого запрос исполняется неверно (он не удаляет созданный issue), тем не менее опищу как я это делала:
+- Чтобы создать данный запрос нужно обраться к документации GitHub: (DELETE/repos/{owner}/{repo}/issues/{issue_number}/lock)
+  >>> Проанализировав документацю для API-запросов GitHub мне показалось странным размещение запросы с методом DELETE в разделе Unlock an issue (как минимум, это не логично), обратите внимание, что в конце запроса стоит команда **lock** возможно из-за этого запрос исполняется неверно (он не удаляет созданный issue), тем не менее опищу как я это делала:
 - В поле URL введите адрес API GitHub issues с номером issue - метод **DELETE** https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}
 - Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
 - Исправить {repo} на имя вашего репозитория, у меня это - Attestation
