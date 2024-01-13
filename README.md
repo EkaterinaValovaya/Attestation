@@ -20,10 +20,29 @@
  "assignees": ["{owner}"]
 }
 ```
->>> ВАЖНО!!! Обязательно исправьте {owner} на логин на GitHub
-
-- Нажмите на кнопку "Send" (Отправить) для выполнения запроса
+>>> ВАЖНО!!! Обязательно исправьте {owner} на логин на GitHub и нажать "Send" для выполнения запроса
   
-## 2. Получить список issues
-4. Изменить название задачи на Issue 2
+## 2. Получить список issues 
+- Чтобы создать данный запрос нужно обраться к документации GitHub [Текст ссылки] (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue) (GET /repos/{owner}/{repo}/issues)
+- В поле URL введите адрес API GitHub issues - https://api.github.com/repos/{owner}/{repo}/issues
+- Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
+- Исправить {repo} на имя вашего репозитория, у меня это - Attestation
+- В разделе "Authorization" выберать тип "Bearer Token" и вставить ранее сгенерированный API-ключ (выбирала именно этот пункт, т.к. с другим методом авторизации запросы не работали)
+- В разделе "Headers" добавьте следующий заголовок: accept-application/vnd.github+json
+- Нажать кнопку Send
+  
+## 3. Изменить название задачи на Issue 2
+- Чтобы создать данный запрос нужно обраться к документации GitHub [Текст ссылки] (https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#update-an-issue) /repos/{owner}/{repo}/issues/{issue_number}
+- В поле URL введите адрес API GitHub issues - "https://api.github.com/repos/{owner}/{repo}/issues".
+- Исправить {owner} на логин на GitHub, у меня это - EkaterinaValovaya
+- Исправить {repo} на имя вашего репозитория, у меня это - Attestation
+- Исправить "{issue_number}" на номер issue, который вы получили из предыдущего запроса
+- В разделе "Authorization" выберать тип "Bearer Token" и вставить ранее сгенерированный API-ключ (выбирала именно этот пункт, т.к. с другим методом авторизации запросы не работали)
+- В разделе "Headers" добавьте следующий заголовок: accept-application/vnd.github+json
+- В разделе "Body" выберать тип Rawи формат JSON и ввести следующий код на изменение:
+```
+{
+ "title": "Issue 2"
+}
+```
 5. Удалите Issue 2
